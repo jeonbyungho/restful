@@ -71,13 +71,13 @@
 ## 📨4XX
 - 클라이언트 오류
 
-![404 상태 이상](img\404_state_message.jpg)
+![404 상태 이상]("img/404_state_message.jpg")
 
-![404 상태 이상 받은 페이지](img\404_state_page.jpg)
+![404 상태 이상 받은 페이지]("img/404_state_page.jpg")
 
 ## 📨5XX
 - 서버 오류
 
-![500 상태 이상](img\500_state_message.jpg)
+![500 상태 이상]("img/500_state_message.jpg")
 
-![500 상태 이상 받은 페이지](img\500_state_page.jpg)
+![500 상태 이상 받은 페이지]("img/500_state_page.jpg")

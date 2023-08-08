@@ -41,10 +41,10 @@ public class PeopleService extends HttpServlet{
 		
 		JSONObject obj = new JSONObject();
 		obj.put("id", 		String.valueOf( people.getID() ));
-		obj.put("name", 	String.valueOf( people.getName() ));
+		obj.put("name", 	people.getName());
 		obj.put("pwd", 		String.valueOf( people.getPwd() ));
-		obj.put("email", 	String.valueOf( people.getEmail() ));
-		obj.put("address", 	String.valueOf( people.getAddress() ));
+		obj.put("email", 	people.getEmail());
+		obj.put("address", 	people.getAddress());
 		
 		System.out.println(obj.toJSONString());
 		out.print(obj.toJSONString());

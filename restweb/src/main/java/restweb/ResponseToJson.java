@@ -12,33 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 @WebServlet("/people/info/*")
-public class PeopleInfoJson extends HttpServlet {
+public class ResponseToJson extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("◆ Servlet People Json: Service()");
+		System.out.println("◆ /people/info/* : Service()");
 		super.service(req, resp);
-	}
-	
-	/** URI 리소스 인덱스 int타입으로 변환*/
-	private int pathInfo_toInt(HttpServletRequest req) {
-		
-		String  pathInfo = 	req.getPathInfo();
-				pathInfo =  pathInfo.replace("/", "");
-				
-		return Integer.parseInt(pathInfo);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("◆ Servlet People Json : doGet()");
+		System.out.println("◆ /people/info/* : Get()");
 		
 		// 🐎 HTTP 메서드.
 		String method = req.getMethod();
 		// 🔖 리소스의 인덱스 번호.
-		int pathInfo = pathInfo_toInt(req);
+		int pathInfo = ServiceSupport.pathInfo_toInt(req);
 		
 		System.out.printf("- Method : %s \n", method);
 		System.out.printf("- Path info : %d \n", pathInfo);

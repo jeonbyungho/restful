@@ -1,9 +1,15 @@
 // const url = 'https://codingapple1.github.io/price.json';
 
 window.onload = () => {
-   console.log('📢GET Request');
-   
-   const url = 'http://localhost:8080/people/info/1';
+
+   let pathname = location.pathname;
+   let index = pathname.lastIndexOf('/');
+   let sub = pathname.substring(index + 1);
+
+   const url = 'http://localhost:8080/people/info/' + sub;
+
+   console.log('📢GET Request', url);
+
    fetch(url)
    .then(resp => {
       if (!resp.ok) {

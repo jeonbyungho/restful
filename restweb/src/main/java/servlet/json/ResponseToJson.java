@@ -1,4 +1,4 @@
-package servlet;
+package servlet.json;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,7 +48,7 @@ public class ResponseToJson extends HttpServlet {
 		// 📨 응답 메시지 body 출력 객체 할당.
 		PrintWriter out = resp.getWriter();
 		
-		// 임시 구현
+		// 📜 json 형태로 출력하기
 		JSONObject json = people.toJson();
 		out.print(json.toJSONString());
 		

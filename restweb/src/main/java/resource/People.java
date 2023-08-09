@@ -15,16 +15,18 @@ public class People {
 	private String 		pwd;
 	private String 		email;
 	private String 		address;
-	private String 		phone;
+	private String 		tel;
+	private String 		bio;
 	
-	public People(String name, String pwd, String email, String address, String phone) {
+	public People(String name, String pwd, String email, String address, String tel, String bio) {
 		this.id = ++_conunt;
 		
 		this.name 	 = name;
 		this.pwd 	 = pwd;
 		this.email 	 = email;
 		this.address = address;
-		this.phone 	 = phone;
+		this.tel 	 = tel;
+		this.bio 	 = bio;
 		
 	}
 	
@@ -48,8 +50,12 @@ public class People {
 		return address;
 	}
 
-	public String getPhone() { 
-		return phone;
+	public String getTel() { 
+		return tel;
+	}
+	
+	public String getBio() { 
+		return bio;
 	}
 
 	public void setName(String name) {
@@ -68,14 +74,18 @@ public class People {
 		this.address = address;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
-
+	
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	
 	@Override
 	public String toString() {
 		return "People [id=" + id + ", name=" + name + ", pwd=" + pwd + ", email=" + email + ", address=" + address
-				+ ", phone=" + phone + "]";
+				+ ", tel=" + tel + ", bio=" + bio + "]";
 	}
 	
 	public JSONObject toJson() {
@@ -86,7 +96,8 @@ public class People {
 		people.put("pwd"	, this.pwd);
 		people.put("email"	, this.email);
 		people.put("address", this.address);
-		people.put("phone"	, this.phone);
+		people.put("tel"	, this.tel);
+		people.put("bio"	, this.bio);
 		
 		return people;
 	}

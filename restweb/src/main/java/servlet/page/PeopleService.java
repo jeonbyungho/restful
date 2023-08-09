@@ -1,4 +1,4 @@
-package servlet;
+package servlet.page;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,20 +61,22 @@ public class PeopleService extends HttpServlet {
 		JSONParser jparser = new JSONParser(msg);
 		try {
 			LinkedHashMap<String, Object> map = jparser.parseObject();
-			String getName = null;
-			String getPwd = null;
-			String getAddress = null;
-			String getEmail = null;
-			String getTel = null;
+			String reqName = null;
+			String reqPwd = null;
+			String reqEmail = null;
+			String reqAddress = null;
+			String reqTel = null;
+			String reqBio = null;
 			for(String key : map.keySet()) {
 				System.out.println(key + " : " + map.get(key));
-				getName = map.get("name").toString();
-				getPwd = map.get("pwd").toString();
-				getAddress = map.get("address").toString();
-				getEmail = map.get("email").toString();
-				getTel = map.get("tel").toString();
+				reqName = map.get("name").toString();
+				reqPwd = map.get("pwd").toString();
+				reqEmail = map.get("email").toString();
+				reqAddress = map.get("address").toString();
+				reqTel = map.get("tel").toString();
+				reqBio = map.get("bio").toString();
 			}
-			plist.add(getName, getPwd, getEmail, getAddress, getTel);
+			plist.add(reqName, reqPwd, reqEmail, reqAddress, reqTel, reqBio);
 		} catch (ParseException e) {
 			
 			e.printStackTrace();

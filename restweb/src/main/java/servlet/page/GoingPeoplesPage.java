@@ -1,4 +1,4 @@
-package servlet;
+package servlet.page;
 
 import java.io.IOException;
 
@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/write")
-public class WritePageGoing extends HttpServlet {
+@WebServlet("/peoples/*")
+public class GoingPeoplesPage extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher reqDispatcher = req.getRequestDispatcher("/write.html");
+		RequestDispatcher reqDispatcher = req.getRequestDispatcher("/list.html");
 		reqDispatcher.forward(req, resp);
 	}
 }

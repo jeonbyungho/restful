@@ -1,13 +1,17 @@
-// const url = 'https://codingapple1.github.io/price.json';
+const origin = location.origin;
+const pathname = location.pathname;
+
+const doc_name    = document.getElementById('name');
+const doc_address = document.getElementById('address');
+const doc_email   = document.getElementById('email');
+const doc_tel     = document.getElementById('tel');
+const doc_bio     = document.getElementById('bio');
 
 window.onload = () => {
+   const index = pathname.lastIndexOf('/');
+   const sub = pathname.substring(index + 1);
 
-   let pathname = location.pathname;
-   let index = pathname.lastIndexOf('/');
-   let sub = pathname.substring(index + 1);
-
-   const url = 'http://localhost:8080/people/info/' + sub;
-
+   const url = origin + '/people/info/' + sub;
    console.log('📢GET Request', url);
 
    fetch(url)
@@ -18,9 +22,16 @@ window.onload = () => {
       return resp.json();
    })
    .then(json => {
-      console.log(json);
+      console.table(json);
+      doc_name.innerHTML    = json['name'];
+      doc_address.innerHTML = json['address'];
+      doc_email.innerHTML   = json['email'];
+      doc_tel.innerHTML     = json['tel'];
+      doc_bio.innerHTML     = json['bio'];
    })
    .catch( (e) => {
       console.error(e.error);
    })
 }
+
+document.getElementById('back').onclick = (e)=> { window.history.back(); false;}

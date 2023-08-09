@@ -1,4 +1,4 @@
-package restweb;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
+
+import resource.*;
+import support.ServiceSupport;
 
 @WebServlet("/people/info/*")
 public class ResponseToJson extends HttpServlet {
@@ -34,6 +37,11 @@ public class ResponseToJson extends HttpServlet {
 		System.out.printf("- Method : %s \n", method);
 		System.out.printf("- Path info : %d \n", pathInfo);
 		
+		// 저장소 할당
+		PeopleList plist = PeopleList.get();
+		People people = plist.findAnId(pathInfo);
+		System.out.println("조회된 사람" + people.toString());
+		
 		// 📨 응답 헤더 Content-Type 설정 : 전송 데이터의 형태와 인코딩을 지정.
 		resp.setContentType("application/json;charset=utf-8");
 		
@@ -41,9 +49,7 @@ public class ResponseToJson extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		
 		// 임시 구현
-		JSONObject json = new JSONObject();
-		json.put("id", pathInfo);
-		json.put("name", "kim");
+		JSONObject json = people.toJson();
 		out.print(json.toJSONString());
 		
 		System.out.printf("- json : %s \n", json.toJSONString());

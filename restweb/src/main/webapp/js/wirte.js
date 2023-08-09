@@ -19,8 +19,9 @@ async function postPeople(data){
       console.log('🫙 init', init);
       
       const resp = await fetch(url, init);
-      const result = await resp.json();
-      console.log("Success:", result);
+      if(resp.ok){
+         console.error("😀: POST 성공");
+      }
    } catch(error) {
       console.error("🤮:", error);
    }

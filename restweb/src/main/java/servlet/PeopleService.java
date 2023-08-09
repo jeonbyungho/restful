@@ -1,15 +1,13 @@
-package restweb;
+package servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONObject;
 
 @WebServlet("/people")
 public class PeopleService extends HttpServlet {
@@ -31,18 +29,28 @@ public class PeopleService extends HttpServlet {
 		
 		System.out.printf("- Method : %s \n", method);
 		
+		// 📢 요청 메시지 인코딩 지정.
 		req.setCharacterEncoding("UTF-8");
-		// 📨 응답 헤더 Content-Type 설정 : 전송 데이터의 형태와 인코딩을 지정.
+		// 📢 요청 메시지 body 읽기 객체 할당.
+		BufferedReader reader = req.getReader();
+		reader.ready();
+		
+		// 🔍 .json 읽어오기
+		StringBuffer
+			msgBuffer = new StringBuffer();
+		
+		while(reader.ready()) {
+			String str = reader.readLine();
+			msgBuffer.append(str);
+		}
+		
+		String msg = msgBuffer.toString();
+		System.out.printf("▶ req.json : %s\n", msg);
+		
+		msgBuffer.setLength(0);
+		
+		// 📨 응답 메시지 Content-Type 설정 : 전송 데이터의 형태와 인코딩을 지정.
 		resp.setContentType("application/json;charset=utf-8");
 		
-		// 📨 응답 메시지 body 출력 객체 할당.
-		PrintWriter out = resp.getWriter();
-		
-		// 임시 구현
-		JSONObject json = new JSONObject();
-		json.put("응답", 21);
-		out.print(json.toJSONString());
-		
-		System.out.printf("- json : %s \n", json.toJSONString());
 	}
 }

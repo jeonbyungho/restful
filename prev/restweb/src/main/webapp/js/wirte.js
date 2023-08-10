@@ -52,4 +52,4 @@ async function postPeople(){
 // };
 
 document.getElementById('submit').onclick =  (e) => postPeople();
-document.getElementById('back').onclick =    (e) => { window.history.back();}
+document.getElementById('back').onclick =    (e) => { window.history.go(-1);}

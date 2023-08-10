@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Profile</title>
+   <style>
+      label {
+         display: block;
+      }
+   </style>
+</head>
+<body>
+   <button id="back" onclick="history.back();">뒤로</button>
+   <button id="del">삭제</button>
+   <fieldset>
+      <legend id="title">Profile</legend>
+      <form id="profile">
+         <label>이름 : 
+            <input type="text" name="name" id="name">
+         </label>
+
+         <label>주소 :
+            <input type="text" name="address" id="address">
+         </label>
+
+         <label>Email :
+            <input type="text" name="email" id="email">
+         </label>
+
+         <label>전화번호 :
+            <input type="text" name="tel" id="tel">
+         </label>
+
+         <input type="submit" name="submit" id="submit">
+      </form>
+   </fieldset>
+   <script src="../js/element.js"></script>
+</body>
+</html>

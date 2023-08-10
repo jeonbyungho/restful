@@ -44,6 +44,11 @@ const from_proflie = document.getElementById('profile');
  */
 function postProfile(e){
    e.preventDefault();
+   // 입력란 값 확인.
+   if(isfromInput()){
+      console.log("🤔 아직 비어 있는 입력란이 있습니다.");
+      return false;
+   }
    console.log('📨POST Request', e.target);
    const from = e.target;
 
@@ -86,8 +91,12 @@ function postProfile(e){
  */
 function putProfile(e){
    e.preventDefault();
+   // 입력란 값 확인.
+   if(isfromInput()){
+      console.log("🤔 아직 비어 있는 입력란이 있습니다.");
+      return false;
+   }
    console.log('📨PUT Request', e.target);
-
    const from = e.target;
 
    // json 구성
@@ -192,6 +201,30 @@ function getProfile(e){
    });
 }
 
+/**
+ * @function 입력란 Value check
+ * @true 비어 있는 입력란이 있을 경우..
+ * @false 입력란을 모두 채웠을 경우..
+ */
+function isfromInput(){
+   if(!from_proflie.name.value) {
+      alert("✍️ 이름을 적어주세요.");
+      return true;
+   }
+   if(!from_proflie.address.value) {
+      alert("✍️ 주소을 적어주세요.");
+      return true;
+   }
+   if(!from_proflie.email.value) {
+      alert("✍️ 이메일을 적어주세요.");
+      return true;
+   }
+   if(!from_proflie.tel.value) {
+      alert("✍️ 전화 번호을 적어주세요.");
+      return true;
+   }
+   return false;
+}
 
 /**
  * uri 식별 여부에 따라 화면 구성을 바꾼다.

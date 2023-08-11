@@ -98,6 +98,9 @@ public class PeopleList {
 			JSONObject data = new JSONObject();
 			data.put("id",	p.getId());
 			data.put("name",p.getName());
+			data.put("email",p.getEmail());
+			data.put("address",p.getAddress());
+			data.put("tel",p.getTel());
 			arr.add(data);
 		}
 		

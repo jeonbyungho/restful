@@ -1,6 +1,5 @@
 package restweb.servlet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
@@ -39,13 +38,17 @@ public class ProfileService extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// Query String에서 format의 값을 불러온다.
 		String parameter = req.getParameter("format");
-		parameter = parameter == null ? "" : parameter;
+		parameter = (parameter == null) ? "" : parameter;	// null인 경우, ""로 대입.
 		System.out.printf("◆ GET \t: Profile, Format : %s\n", parameter);
+		// fromat이 json이라면 json으로 응답.
 		if(parameter.equals("json")) {
 			doGet_Profile(req, resp);
 			return;
 		}
+		// 아닐 경우, html으로 응답.
 		HTMLforward(req, resp);
 	}
 	

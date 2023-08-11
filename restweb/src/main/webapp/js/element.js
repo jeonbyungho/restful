@@ -155,7 +155,8 @@ function deleteProfile(e){
       if(response.ok){
          console.log('😀 DELETE 성공');
          alert('💀 ' + from_proflie.name.value + '님의 정보가 삭제되었습니다.');
-         history.back();
+         location.href = document.referrer;
+         // history.back();
       }
    }).catch(error =>{
       console.error('😭 DELETE 실패', error);

@@ -68,7 +68,6 @@ public class PeopleList {
 		people.setAddress(address);
 		people.setTel(phone);
 		System.out.println(people.toString());
-		this.list.add(people);
 	}
 	
 	/**요소 삭제*/

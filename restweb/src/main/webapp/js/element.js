@@ -77,7 +77,8 @@ function postProfile(e){
       if(response.ok){
          console.log('😀 POST 성공');
          alert('😀 ' + from.name.value + '님이 추가되었습니다.');
-         history.back();
+         location.href = document.referrer;
+         // history.back();
       }
    }).catch(error =>{
       console.error('😭 POST 실패', error);

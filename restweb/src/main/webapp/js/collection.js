@@ -39,7 +39,7 @@ function itemCreate(profile){
    let tel = document.createElement('p');
    let hyperlink = document.createElement('a');
 
-   name.innerHTML = profile.name;
+   name.innerHTML = "👤"+ profile.name;
    address.innerHTML = "🏠 " + profile.address;
    email.innerHTML = "📧 " + profile.email;
    tel.innerHTML = "📞 " + profile.tel;

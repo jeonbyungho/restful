@@ -4,10 +4,60 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Employees</title>
+
+   <style>
+      .hyper_link {
+         text-align: center;
+      }
+      .hyper_link a {
+         text-decoration-line: none;
+         font-size: 1.6em;
+         font-weight: bold;
+         text-align: center;
+         margin: 5em;
+      }
+
+      #list {
+         margin: 0 auto;
+         max-width: 600px;
+         display: grid;
+         grid-template-columns: 50% 50%;
+         
+      }
+      #list fieldset {
+         max-width: 300px;
+         
+      }
+      #list legend {
+         font-size: 2em;
+         font-weight: bold;
+      }
+      #list p {
+         font-size: 1.5em;
+      }
+      #list a {
+         text-decoration-line: none;
+         font-size: 1.5em;
+      }
+
+      #page {
+         text-align: center;
+      }
+      #page a{
+         text-decoration-line: none;
+         font-size: 2em;
+         margin: 0 1em;
+      }
+   </style>
 </head>
 <body>
+   <div class="hyper_link">
+      <a href="/" class="link-primary">🏢메인 화면</a>
+      <a href="/profile" class="link-success">🙂직원 추가</a>
+   </div>
    <div id="list"></div>
    <div id="page"></div>
+
    <script src="../js/collection.js"></script>
 </body>
 </html>
